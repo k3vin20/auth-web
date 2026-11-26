@@ -1,0 +1,11 @@
+{
+  "prompts": {
+    "8d566768-052c-4a3f-b27b-3cc0715c853b": {
+      "id": "8d566768-052c-4a3f-b27b-3cc0715c853b",
+      "name": "rrrr",
+      "content": "Mi proyecto Maven (Java 17, Serenity Screenplay + Cucumber + Selenium con Chrome) falla al ejecutar `mvn clean verify`.\n\nContexto:\n- Ya corregí el error de PMD (\"Unsupported targetJdk value \u002717\u0027\") actualizando maven-pmd-plugin.\n- Ahora los tests se ejecutan, pero falla 1 escenario con:\n  \"Expected: an element that is visible but: no matching element found by [[ChromeDriver: chrome on windows ...]]\"\n\nTarea:\n1. Ejecuta `mvn clean verify` y lee el log completo para identificar qué escenario falla y qué locator exacto no se encuentra.\n2. Revisa @src/main/java/org/example/Pages/LoginPage.java, @RegisterPage.java, @HomePage.java, los Tasks (@IniciarSesion.java, @NavigateHome.java) y los step definitions en src/test/java/org/example/StepDefinitions.\n3. Compara el locator con el HTML real de la página que se abre (usa la URL que está en el código o en serenity.conf) y dime si el selector está mal, si falta una espera (WaitUntil), si hay un iframe, o si la URL/flujo es incorrecto.\n4. Revisa también @src/test/resources/serenity.conf: tiene bloques mal anidados y args de Chrome sin \"--\"; corrígelo.\n5. Aplica el arreglo mínimo necesario, vuelve a ejecutar los tests y explícame qué cambiaste y por qué.\n\nNo cambies la estructura del proyecto ni borres tests.",
+      "provider": "claude",
+      "createdAt": 1795733534347
+    }
+  }
+}
